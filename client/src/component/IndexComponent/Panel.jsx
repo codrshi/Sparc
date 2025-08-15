@@ -39,7 +39,7 @@ const leftPanelSections = [
     },
     {
         className: config.panelNames.FINANCIAL_ADVISOR,
-        title: "Financial Advisor",
+        title: "Financial Advisor AI",
         sectionName: <PsychologyAltIcon></PsychologyAltIcon>
     }
 ];

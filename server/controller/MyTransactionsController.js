@@ -40,7 +40,7 @@ export async function updateTransaction(id, newTransaction, isRecurring, userId)
     logger(loggingLevel.DEBUG, `Updating transactions from table: {0}`, table);
 
     const updatedTransactionDB = await updateTransactionDB(id, newTransaction, table, userId);
-    const updatedTransaction = updatedTransactiontransactionDBToDTOmapper(updatedTransactionDB);
+    const updatedTransaction = transactionDBToDTOmapper(updatedTransactionDB);
 
     logger(loggingLevel.INFO, `Transaction with ID = {0} updated successfully`, id);
     logger(loggingLevel.DEBUG, `Updated transaction: {0}`, JSON.stringify(updatedTransaction, null, 2));

@@ -9,7 +9,7 @@ import { IconButton, Tooltip } from "@mui/material";
 function Bar(props) {
 
     const [isImageClicked, setIsImageClicked] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    const [isDarkMode, setIsDarkMode] = useState(false);
     const [barData, setBarData] = useState({
         username: getCookie(config.userInterface.cookieFields.USERNAME),
         profilePictureURL: getCookie(config.userInterface.cookieFields.PROFILE_PICTURE_URL)

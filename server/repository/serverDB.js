@@ -6,6 +6,9 @@ import config from "../configuration/config.js";
 dotenv.config();
 const loggingLevel = config.loggingLevel;
 
+//local DB setup: 
+// - create a new database "sparc" in local PostgreSQL server
+// - create a superuser with username PG_USER and password PG_PASSWORD
 const db = new pg.Client({
     user: process.env.PG_USER,
     password: process.env.PG_PASSWORD,
