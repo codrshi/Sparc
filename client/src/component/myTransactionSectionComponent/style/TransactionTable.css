@@ -1,0 +1,101 @@
+.transaction-table {
+    padding: 0 1rem 1rem 1rem !important;
+    width: auto !important;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    background-color: var(--bg-color-white-black) !important;
+}
+
+.transaction-table::-webkit-scrollbar {
+    display: none;
+}
+
+.table-header-cell {
+    color: var(--bg-color-black-white) !important;
+    position: sticky !important;
+    top: 0 !important;
+    background-color: var(--bg-color-white-black) !important;
+    z-index: 1 !important;
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    font-size: clamp(0.7rem, 1.2vw, 1.2vw) !important;
+    transition: all 0.3s ease !important;
+}
+
+.table-header-cell-content {
+    display: flex;
+    align-items: center;
+}
+
+.table-body-row>*:not(:last-child) {
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    color: var(--bg-color-2) !important;
+    font-size: clamp(0.7rem, 1.2vw, 1.2vw) !important;
+    transition: all 0.3s ease !important;
+}
+
+.description-cell {
+    position: relative !important;
+    max-width: 10vw !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.table-body-row>.transaction-amount-cell-positive {
+    color: green !important;
+}
+
+.table-body-row>.transaction-amount-cell-negative {
+    color: red !important;
+}
+
+.description-cell span {
+    display: inline-block !important;
+    white-space: nowrap !important;
+}
+
+.description-cell:hover span {
+    transform: translateX(calc(-100%));
+}
+
+.table-body-row:hover {
+    background-color: var(--bg-color);
+}
+
+.transaction-table-button {
+    background-color: var(--bg-color-white-black) !important;
+    color: #6237a0 !important;
+    border-color: #6237a0 !important;
+    width: 5vw !important;
+    height: 10vh !important;
+}
+
+.button:hover {
+    color: #9754cb !important;
+    border-color: #9754cb !important;
+}
+
+.button:focus {
+    color: #d592f4 !important;
+    border-color: #d592f4 !important;
+}
+
+.attribute-dropdown-content {
+    display: flex;
+}
+
+.attribute-dropdown-item {
+    font-family: "Nunito", sans-serif !important;
+    font-size: 0.75rem !important;
+    text-transform: none !important;
+    color: var(--bg-color-2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.attribute-dropdown-item:hover {
+    background-color: #d592f4 !important;
+}

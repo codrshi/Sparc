@@ -1,0 +1,156 @@
+.settings-body-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 2.67vh 1vw 0 1vw;
+    font-family: "Nunito", sans-serif;
+    overflow: hidden;
+}
+
+.settings-field {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+.settings-field> :nth-child(1) {
+    align-self: center;
+    color: var(--bg-color-2);
+    font-size: clamp(0.8rem, 1.3vw, 1.3vw);
+    transition: all 0.3s ease;
+}
+
+.settings-button {
+    background-color: var(--panel-color) !important;
+    box-shadow: none !important;
+    color: #6237a0 !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+#disabled-save-settings-button {
+    color: var(--bg-color-3) !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: var(--bg-color-3) !important;
+    margin-right: 1rem !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+#enabled-save-settings-button {
+    color: #6237a0 !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: #6237a0 !important;
+    margin-right: 1rem !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.input-field-focused-outline.Mui-focused fieldset {
+    border-color: #6237a0 !important;
+}
+
+.input-field-outline-err fieldset {
+    border-color: red !important;
+}
+
+#settings-close-button {
+    background-color: var(--panel-color) !important;
+    box-shadow: none !important;
+    color: #6237a0 !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.settings-confirm-button-enabled {
+    color: #6237a0 !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: #6237a0 !important;
+    margin-right: 1rem !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.settings-confirm-button-disabled {
+    color: var(--bg-color-3) !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: var(--bg-color-3) !important;
+    margin-right: 1rem !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+#delete-account-button {
+    color: red !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: red !important;
+    text-transform: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.file-upload-container {
+    background-color: var(--bg-color-white-black) !important;
+    box-shadow: none !important;
+    color: #6237a0 !important;
+    text-transform: none !important;
+    border: 1px solid #6237a0 !important;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: all 0.3s ease !important;
+}
+
+.file-upload-container:hover,
+#enabled-save-settings-button:hover {
+    color: #9754cb !important;
+    border-color: #9754cb !important;
+}
+
+.preview-image-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.cancel-image-icon {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease-in-out !important;
+    background: #0000004d !important;
+    /* Optional: for better visibility */
+    border-radius: 50% !important;
+    color: var(--bg-color-white-black) !important;
+    /* Ensure the icon is visible */
+}
+
+.preview-image-container:hover .preview-image {
+    opacity: 0.5 !important;
+    /* Reduce opacity on hover */
+}
+
+.preview-image-container:hover .cancel-image-icon {
+    opacity: 1 !important;
+    /* Show icon on hover */
+}

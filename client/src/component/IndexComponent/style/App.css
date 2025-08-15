@@ -1,0 +1,13 @@
+.home {
+    position: fixed;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+
+.body {
+    height: 85vh;
+    width: 100%;
+    display: flex;
+}

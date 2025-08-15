@@ -1,0 +1,113 @@
+@import url('../../IndexComponent/style/Board.css');
+
+.month-selector-body {
+    display: flex;
+    align-items: center;
+}
+
+.month-selector-body>:nth-child(2) {
+    font-family: "Nunito", sans-serif;
+    padding: 0 1rem 0 1rem;
+    color: var(--bg-color-3);
+    transition: all 0.3s ease;
+    width: 13vw;
+    text-align: center;
+    font-size: clamp(0.7rem, 1.2vw, 1.2vw);
+}
+
+.arrow-button {
+    cursor: pointer;
+    color: #6237a0;
+    display: flex;
+    align-items: center;
+}
+
+.arrow-button:hover {
+    color: #9754cb;
+}
+
+.disabled-arrow-button {
+    color: var(--bg-color-3) !important;
+    transition: all 0.3s ease !important;
+    cursor: default;
+}
+
+.disabled-arrow-button:hover {
+    color: var(--bg-color-3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.empty-transaction-state-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.board-body-component {
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.board-body-component-title {
+    font-size: clamp(1rem, 1.5vw, 1.5vw);
+    font-weight: 650;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+    color: var(--bg-color-black-white);
+    transition: all 0.3s ease;
+}
+
+#pie-chart-body> :nth-child(3) {
+    color: var(--bg-color-3);
+    transition: all 0.3s ease;
+    transform: translateX(-2.7rem);
+}
+
+.doughnut-chart-body-content {
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doughnut-chart-container {
+    width: 33%;
+    height: 15rem;
+}
+
+.doughnut-chart-text {
+    color: var(--bg-color-3);
+    transition: all 0.3s ease;
+}
+
+.expense-progress-body-content {
+    width: 100%;
+}
+
+.export-button {
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    font-size: 0.8rem !important;
+    font-weight: 650 !important;
+    letter-spacing: 0 !important;
+    color: #6237a0 !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: #6237a0 !important;
+    margin-right: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.board-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.export-button:hover {
+    color: #9754cb;
+}

@@ -1,0 +1,148 @@
+@import url('../../IndexComponent/style/Board.css');
+
+.manage-expenses-button {
+    cursor: pointer;
+    color: #6237a0;
+    display: flex;
+    align-items: center;
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    font-size: 0.8rem !important;
+    font-weight: 650 !important;
+    letter-spacing: 0 !important;
+}
+
+.manage-expense-button:hover {
+    color: #9754cb;
+}
+
+#disabled-button {
+    color: var(--bg-color-3) !important;
+    cursor: default;
+    transition: all 0.3s ease;
+}
+
+#disabled-button:hover {
+    color: var(--bg-color-3) !important;
+    transition: all 0.3s ease;
+}
+
+.board-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.board-body-component {
+    display: flex;
+    align-items: center;
+    margin: 2.67vh 1vw 0 1vw;
+    font-family: "Nunito", sans-serif;
+    overflow: hidden;
+
+}
+
+#button-section {
+    margin-bottom: 1.5rem;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.board-body-component-accordion-content {
+    display: flex;
+    flex-direction: column;
+    color: var(--bg-color-black-white);
+    background-color: var(--bg-color-white-black);
+    transition: all 0.3s ease;
+}
+
+.board-body-component-accordion-content> :nth-child(1) {
+    color: var(--bg-color-2);
+    transition: all 0.3s ease;
+    font-size: clamp(0.6rem, 1vw, 1vw);
+}
+
+.board-body-component-accordion-content-component {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: end;
+}
+
+.board-body-component-accordion-content-component>:nth-child(1) {
+    position: absolute;
+    left: 1.5rem;
+    align-self: center;
+    color: var(--bg-color-2);
+    transition: all 0.3s ease;
+    font-size: clamp(0.8rem, 1.3vw, 1.3vw);
+}
+
+.board-body-component-accordion-content-component>:nth-child(3) {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    align-items: center;
+}
+
+.input-field-focused-outline.Mui-focused fieldset {
+    border-color: #6237a0 !important;
+}
+
+.input-field-outline-err.Mui-focused fieldset {
+    border-color: red !important;
+}
+
+.input-field-focused-label.Mui-focused {
+    color: #6237a0 !important;
+}
+
+.input-field-label-err.Mui-focused {
+    color: red !important;
+}
+
+#reset-button,
+#close-button {
+    background-color: var(--panel-color) !important;
+    transition: all 0.3s ease !important;
+    box-shadow: none !important;
+    color: #6237a0 !important;
+}
+
+#enabled-save-button,
+#confirm-button {
+    color: #6237a0 !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: #6237a0 !important;
+    margin-right: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+#disabled-save-button {
+    color: var(--bg-color-3) !important;
+    background-color: var(--bg-color-white-black) !important;
+    border-color: var(--bg-color-3) !important;
+    margin-right: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.alert-dialog-description {
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    color: var(--bg-color-2) !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.MuiAccordionDetails-root {
+    background-color: var(--bg-color-white-black) !important;
+    transition: all 0.3s ease !important;
+}
+
+.rupee-icon,
+.percentage-icon {
+    color: var(--bg-color-2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.rupee-icon-disabled,
+.percentage-icon-disabled {
+    color: var(--bg-color-3) !important;
+}

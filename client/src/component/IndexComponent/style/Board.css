@@ -1,0 +1,73 @@
+.board {
+    flex: 9.5;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.board::-webkit-scrollbar {
+    display: none;
+}
+
+.board-header {
+    height: 10vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-color-white-black);
+    transition: all 0.3s ease;
+    border-bottom: 0.1rem solid var(--board-header-border);
+    transition: all 0.3s ease;
+}
+
+.board-header> :nth-child(1) {
+    font-family: "Nunito", sans-serif;
+    font-size: clamp(1rem, 2vw, 2vw);
+    font-weight: bolder;
+    color: var(--bg-color-black-white);
+    background-color: var(--bg-color-white-black);
+    transition: all 0.3s ease;
+}
+
+.board-body {
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.empty-state-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-state-body> :nth-child(1) {
+    width: 30vh;
+    height: 30vh;
+    padding: 1.5rem 0 1.5rem 0;
+}
+
+.empty-state-body> :nth-child(2) {
+    font-family: "Nunito", sans-serif;
+    text-transform: none;
+    color: var(--bg-color-black-white);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    font-size: larger;
+    padding: 0 0 0.5rem 0;
+    transition: all 0.3s ease !important;
+}
+
+.empty-state-body> :nth-child(3) {
+    font-family: "Nunito", sans-serif;
+    text-transform: none;
+    color: var(--bg-color-2);
+    font-size: small;
+    transition: all 0.3s ease !important;
+}

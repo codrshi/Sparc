@@ -1,0 +1,44 @@
+@import url('../../IndexComponent/style/Board.css');
+
+.board-header {
+    justify-content: space-between;
+}
+
+.add-transaction-button {
+    color: #6237a0 !important;
+    width: clamp(3rem, 5vw, 5vw) !important;
+    height: clamp(3rem, 13.36vh, 13.36vh) !important;
+    padding: 0 !important;
+}
+
+.add-transaction-button>:nth-child(1) {
+    width: "100%" !important;
+    height: "100%" !important;
+}
+
+.add-transaction-button:hover {
+    color: #9754cb !important;
+}
+
+.add-transaction-button:focus {
+    color: #d592f4 !important;
+}
+
+.alert-dialog-description {
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    color: var(--bg-color-2) !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+#close-button {
+    font-family: "Nunito", sans-serif !important;
+    text-transform: none !important;
+    font-size: 0.8rem !important;
+    font-weight: 650 !important;
+    letter-spacing: 0 !important;
+    background-color: #eaeaea !important;
+    box-shadow: none !important;
+    color: #6237a0 !important;
+}

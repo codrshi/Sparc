@@ -1,0 +1,83 @@
+@import url('../../IndexComponent/style/Board.css');
+
+.credits-left-heading {
+    font-family: "Nunito", sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.5vw);
+    font-weight: bolder;
+    color: var(--bg-color-black-white);
+    transition: all 0.3s ease;
+}
+
+.credits-left-heading> :first-child {
+    color: #6237a0;
+}
+
+.financial-advisor-body-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 2.67vh 1vw 0 1vw;
+    font-family: "Nunito", sans-serif;
+    overflow: hidden;
+}
+
+.financial-advisor-input {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-between;
+}
+
+#financial-advisor-description {
+    color: var(--bg-color-2);
+    font-size: clamp(0.6rem, 1vw, 1vw);
+}
+
+.financial-advisor-input> :nth-child(1) {
+    align-self: center;
+    color: var(--bg-color-2);
+    font-size: clamp(0.8rem, 1.3vw, 1.3vw);
+    transition: all 0.3s ease;
+}
+
+.financial-advisor-input-field {
+    display: flex;
+    gap: 0.5vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.generate-advice-button {
+    color: #6237a0 !important;
+    width: clamp(3rem, 5vw, 5vw) !important;
+    height: clamp(3rem, 13.36vh, 13.36vh) !important;
+    padding: 0 !important;
+}
+
+.generate-advice-button>:nth-child(1) {
+    width: "100%" !important;
+    height: "100%" !important;
+}
+
+.generate-advice-button:hover {
+    color: #9754cb !important;
+}
+
+.generate-advice-button:focus {
+    color: #d592f4 !important;
+}
+
+.disabled-advice-button {
+    color: var(--bg-color-3) !important;
+    transition: all 0.3s ease !important;
+}
+
+#ai-advice-body {
+    color: var(--bg-color-black-white);
+    padding: 1rem !important;
+    border: 0.3vh solid var(--bg-color-2);
+    border-radius: 0.5rem;
+    background-color: var(--bg-color-white-black);
+    transition: all 0.3s ease !important;
+}
