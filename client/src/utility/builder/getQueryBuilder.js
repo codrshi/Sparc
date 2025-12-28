@@ -22,7 +22,7 @@ function getQueryBuilder(queryParameter) {
         orderByClauses.push(`${transactionDB.attributes.TRANSACTION_AMOUNT} ${queryParameter[config.transaction.AMOUNT]}`);
     }
 
-    const whereQuery = whereClauses.length > 0 ? `WHERE ${whereClauses.join(" AND ")}` : "";
+    const whereQuery = whereClauses.length > 0 ? `${whereClauses.join(" AND ")}` : "";
     const orderByQuery = orderByClauses.length > 0 ? `ORDER BY ${orderByClauses.join(", ")}` : "";
 
     return `${whereQuery} ${orderByQuery}`.trim();
