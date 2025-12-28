@@ -2,15 +2,12 @@ import express from "express";
 import config from "../configuration/config.js";
 import { deleteCredential, getAllSettings, updateSettings } from "../controller/SettingsController.js";
 import multer from "multer";
-import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
 import { verifyToken } from "./LoginRoute.js";
 import { getAccessToken } from "../utility/authentication/jwtTokenGenerator.js";
 import { logger } from "../utility/loggerService.js";
 import { validateBoolean, validateId } from "../utility/dataValidator.js";
-
-dotenv.config();
 
 const NODE_ENV = process.env.NODE_ENV || config.node_env.DEVELOPMENT;
 

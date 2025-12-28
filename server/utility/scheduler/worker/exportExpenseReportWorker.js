@@ -1,5 +1,4 @@
 import { parentPort, workerData } from "worker_threads";
-import dotenv from "dotenv";
 import { getEnabledExpenseLimitsWithMonthlyAmount } from "../../../controller/UtilController.js";
 import nodemailer from "nodemailer";
 import setDayToOne from "../../dateDayToOneSetter.js";
@@ -7,8 +6,6 @@ import { unlockAchievment } from "../../achievementHandler.js";
 import config from "../../../configuration/config.js";
 import puppeteer from 'puppeteer';
 import { logger } from "../../loggerService.js";
-
-dotenv.config();
 
 const loggingLevel = config.loggingLevel;
 const transporter = nodemailer.createTransport({

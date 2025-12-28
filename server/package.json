@@ -32,7 +32,7 @@
     "nodemon": "^3.1.7"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node application.js",
+    "dev": "nodemon application.js"
   }
 }

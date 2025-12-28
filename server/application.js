@@ -11,7 +11,6 @@ import settingsRouter from "./route/SettingsRoute.js";
 import financialAdvisorRouter from "./route/FinancialAdvisorRoute.js";
 import cors from "cors";
 import { initializeDB } from "./repository/dbUtil.js";
-import dotenv from "dotenv";
 import fs from "fs";
 import config from "./configuration/config.js";
 import cookieParser from "cookie-parser";
@@ -24,7 +23,6 @@ import MissingEntryDBException from "./exception/MissingEntryDBException.js";
 import UnknownTableException from "./exception/UnknownTableException.js";
 
 const loggingLevel = config.loggingLevel;
-dotenv.config();
 const app = express();
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -131,4 +129,6 @@ process.on("SIGINT", async () => {
 
 });
 
-export default app;
+app.listen(process.env.SERVER_PORT, () => {
+  logger(loggingLevel.INFO, "application started and running in {0}", `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+});

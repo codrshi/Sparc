@@ -1,9 +1,6 @@
 import config from '../../configuration/config.js';
 import OpenAI from 'openai';
-import dotenv from 'dotenv';
 import { logger } from '../loggerService.js';
-
-dotenv.config();
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY

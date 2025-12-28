@@ -8,7 +8,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import "./style/Panel.css";
 import { Tooltip } from "@mui/material";
 import config from "../../configuration/config.js";
-import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 const leftPanelSections = [
     {
@@ -40,7 +40,7 @@ const leftPanelSections = [
     {
         className: config.panelNames.FINANCIAL_ADVISOR,
         title: "Financial Advisor AI",
-        sectionName: <PsychologyAltIcon></PsychologyAltIcon>
+        sectionName: <AutoAwesomeIcon></AutoAwesomeIcon>
     }
 ];
 

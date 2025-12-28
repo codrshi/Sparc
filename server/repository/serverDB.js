@@ -1,9 +1,7 @@
 import pg from "pg";
-import dotenv from "dotenv";
 import { logger } from "../utility/loggerService.js";
 import config from "../configuration/config.js";
 
-dotenv.config();
 const loggingLevel = config.loggingLevel;
 
 //local DB setup: 

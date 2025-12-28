@@ -2,7 +2,6 @@ import express from "express";
 import config from "../configuration/config.js";
 import { addCredential, changePassword, getCredential, isUserPresent, verifyMail } from "../controller/LoginController.js";
 import sendVerificationCode from "../utility/authentication/mailVerifier.js";
-import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
 import { getAccessToken, getRefreshToken } from "../utility/authentication/jwtTokenGenerator.js";
 import { createImageURL } from "../utility/builder/imageHelper.js";
@@ -10,7 +9,6 @@ import { logger } from "../utility/loggerService.js";
 import { validateToken } from "../utility/dataValidator.js";
 import ExpiredTokenException from "../exception/ExpiredTokenException.js";
 
-dotenv.config();
 const loggingLevel = config.loggingLevel;
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY || "your-secret-key";

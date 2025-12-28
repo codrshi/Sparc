@@ -1,7 +1,3 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 export function changeImageName(fileName, username) {
     return `${username}.${fileName.split(".").pop()}`;
 }
