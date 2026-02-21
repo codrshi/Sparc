@@ -1,4 +1,4 @@
-import config from "../../../client/src/configuration/config.js";
+import config from "../../configuration/config.js";
 
 const tips = [
     "Diversify your income sources to increase financial stability.",
