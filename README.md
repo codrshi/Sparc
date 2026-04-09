@@ -13,3 +13,4 @@ Sparc provides following features:
 - **Frontend Framework**: React
 - **Backend Framework**: Express.js
 - **Persistence**: PostgreSQL
+- **Reverse Proxy / Web Server**: Nginx
