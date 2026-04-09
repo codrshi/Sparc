@@ -49,7 +49,9 @@ function Settings(props) {
         console.log(response.data)
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if (error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to fetch data.", severity: config.alertSeverity.ERROR }));
@@ -99,7 +101,9 @@ function Settings(props) {
           setIsEmailPresent(true);
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if (error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to change settings.", severity: config.alertSeverity.ERROR }));
@@ -114,7 +118,9 @@ function Settings(props) {
         navigate("/");
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if (error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to logout.", severity: config.alertSeverity.ERROR }));
@@ -133,7 +139,9 @@ function Settings(props) {
         }
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if (error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to delete account.", severity: config.alertSeverity.ERROR }));

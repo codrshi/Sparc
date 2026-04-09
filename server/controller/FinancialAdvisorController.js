@@ -1,4 +1,3 @@
-import { log } from "console";
 import config from "../configuration/config.js";
 import { decrementCreditsDB } from "../repository/query/credentialQuery.js";
 import getAiResponse from "../utility/builder/aiResponseGenerator.js";

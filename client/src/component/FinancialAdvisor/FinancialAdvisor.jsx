@@ -47,7 +47,9 @@ function FinancialAdvisor(props) {
         setIsNewAccount(() => response.data.isNewAccount);
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if(error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to fetch credits.", severity: config.alertSeverity.ERROR }));
@@ -73,7 +75,9 @@ function FinancialAdvisor(props) {
           setCredits(() => response.data.credits);
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if(error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to generate advice.", severity: config.alertSeverity.ERROR }));

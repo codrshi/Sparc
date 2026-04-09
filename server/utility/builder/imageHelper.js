@@ -7,7 +7,7 @@ export function createImageURL(imagePath) {
         return null;
     }
 
-    return `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}/${imagePath}`;
+    return `${process.env.CLIENT_URL}/${imagePath}`;
 }
 
 

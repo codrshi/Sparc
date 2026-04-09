@@ -1,22 +1,27 @@
 import config from "../configuration/config.js";
 import dotenv from "dotenv";
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 dotenv.config();
+dotenv.config({path: path.join(__dirname, `../.env.${process.env.NODE_ENV}`)});
 
-export const loggingDegree = {
-    DEBUG: 1,
-    INFO: 2,
-    WARN: 3,
-    ERROR: 4,
-};
+const LOGGING_LEVEL_LOOKUP = new Map([
+    [config.loggingLevel.DEBUG, 0],
+    [config.loggingLevel.INFO, 1],
+    [config.loggingLevel.WARN, 2],
+    [config.loggingLevel.ERROR, 3]
+]);
 
-const env = process.env.NODE_ENV || config.node_env.DEVELOPMENT;
-export const ACTIVE_LOG_LEVEL = env === config.node_env.PRODUCTION
-    ? loggingDegree.INFO
-    : loggingDegree.DEBUG;
+const ACTIVE_LOGGING_TYPE = LOGGING_LEVEL_LOOKUP.has(process.env.LOG_LEVEL)? process.env.LOG_LEVEL: config.loggingLevel.INFO;
+const ACTIVE_LOGGING_LEVEL = LOGGING_LEVEL_LOOKUP.get(ACTIVE_LOGGING_TYPE);
 
-export const logger = (level, message, ...params) => {
-    if (level < ACTIVE_LOG_LEVEL) {
+console.log(`Logging level is set to ${ACTIVE_LOGGING_TYPE}`);
+
+export const logger = (logType, message, ...params) => {
+    if (LOGGING_LEVEL_LOOKUP.has(logType) && LOGGING_LEVEL_LOOKUP.get(logType) < ACTIVE_LOGGING_LEVEL) {
         return;
     }
 
@@ -42,9 +47,9 @@ export const logger = (level, message, ...params) => {
     }
 
     const timestamp = new Date().toISOString();
-    const loggerfinalMessage = `[${timestamp}] [${level}] ${locationInfo}: ${message}`;
+    const loggerfinalMessage = `[${timestamp}] [${logType}] ${locationInfo}: ${message}`;
 
-    switch (level) {
+    switch (logType) {
         case config.loggingLevel.INFO: console.info(loggerfinalMessage);
             break;
         case config.loggingLevel.DEBUG:

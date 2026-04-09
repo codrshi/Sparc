@@ -5,22 +5,26 @@ import "./style/Bar.css";
 import config from "../../configuration/config.js";
 import getCookie from "../../utility/cookieFieldFetcher.js";
 import { IconButton, Tooltip } from "@mui/material";
+import defaultProfilePicturePath from "../../asset/default_profile_picture.png";
 
 function Bar(props) {
 
+    const getUpdatedBarData = () => {
+        const rawPhoto = getCookie(config.userInterface.cookieFields.PROFILE_PICTURE_URL);
+        return {
+            username: getCookie(config.userInterface.cookieFields.USERNAME),
+            profilePictureURL: rawPhoto.endsWith(config.DEFAULT_PROFILE_PICTURE_PATH) 
+                ? defaultProfilePicturePath 
+                : rawPhoto
+        };
+    };
+
     const [isImageClicked, setIsImageClicked] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
-    const [barData, setBarData] = useState({
-        username: getCookie(config.userInterface.cookieFields.USERNAME),
-        profilePictureURL: getCookie(config.userInterface.cookieFields.PROFILE_PICTURE_URL)
-    });
+    const [barData, setBarData] = useState(getUpdatedBarData);
 
     useEffect(() => {
-        setBarData({
-            username: getCookie(config.userInterface.cookieFields.USERNAME),
-            profilePictureURL: getCookie(config.userInterface.cookieFields.PROFILE_PICTURE_URL)
-        });
-
+        setBarData(getUpdatedBarData());
     }, [props.userDataChangeCounter]);
 
     useEffect(() => {

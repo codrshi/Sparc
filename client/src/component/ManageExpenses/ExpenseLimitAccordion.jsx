@@ -27,7 +27,9 @@ function ExpenseLimitAccordion(props) {
         console.log(response.data)
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if(error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to fetch data.", severity: config.alertSeverity.ERROR }));
@@ -70,7 +72,9 @@ function ExpenseLimitAccordion(props) {
         props.setAlertLabel(() => ({ text: "Changes saved.", severity: "success" }));
       })
       .catch((error) => {
-        if (error.response && error.response.data && error.response.data.error)
+        if(error.status == 429)
+          props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+        else if (error.response && error.response.data && error.response.data.error)
           props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
         else
           props.setAlertLabel(() => ({ text: "Failed to save changes.", severity: config.alertSeverity.ERROR }));

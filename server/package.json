@@ -26,13 +26,14 @@
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "@types/node": "^22.13.4",
+    "cross-env": "^10.1.0",
     "eslint": "^9.21.0",
     "eslint-plugin-react": "^7.37.4",
     "globals": "^16.0.0",
     "nodemon": "^3.1.7"
   },
   "scripts": {
-    "start": "node application.js",
-    "dev": "nodemon application.js"
+    "start": "cross-env NODE_ENV=production node application.js",
+    "dev": "cross-env NODE_ENV=development nodemon application.js"
   }
 }

@@ -39,7 +39,7 @@ function MyTransactions(props) {
         if (isQueryExecuting.current || !hasMoreRows.current)
             return;
         isQueryExecuting.current = true;
-        axios.get(`/${props.currentPanel.endpoints.GET_ALL_TRANSACTION}`, {
+        axios.get(`${props.currentPanel.endpoints.GET_ALL_TRANSACTION}`, {
             params: {
                 condition: getQueryBuilder(queryParameter),
                 offset: tablePage * config.db.PER_PAGE_LIMIT,
@@ -53,7 +53,9 @@ function MyTransactions(props) {
                     hasMoreRows.current = false;
             })
             .catch((error) => {
-                if (error.response && error.response.data && error.response.data.error)
+                if(error.status == 429)
+                    props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+                else if(error.response && error.response.data && error.response.data.error)
                     props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
                 else
                     props.setAlertLabel(() => ({ text: "Failed to fetch transactions.", severity: config.alertSeverity.ERROR }));
@@ -153,7 +155,9 @@ function MyTransactions(props) {
                         setExpenseLimitDialogText(response.data);
                 })
                 .catch((error) => {
-                    if (error.response && error.response.data && error.response.data.error)
+                    if(error.status == 429)
+                        props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+                    else if(error.response && error.response.data && error.response.data.error)
                         props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
                     else
                         props.setAlertLabel(() => ({ text: "Failed to update transaction.", severity: config.alertSeverity.ERROR }));
@@ -162,7 +166,7 @@ function MyTransactions(props) {
         }
         else if (operationType === props.currentPanel.operationType.ADD) {
             axios
-                .post(`/${props.currentPanel.endpoints.ADD_TRANSACTION}`, newTransaction)
+                .post(`${props.currentPanel.endpoints.ADD_TRANSACTION}`, newTransaction)
                 .then((response) => {
                     const addedTransaction = response.data;
                     console.log("Transaction added successfully:", JSON.stringify(addedTransaction));
@@ -186,7 +190,9 @@ function MyTransactions(props) {
                         setExpenseLimitDialogText(response.data);
                 })
                 .catch((error) => {
-                    if (error.response && error.response.data && error.response.data.error)
+                    if(error.status == 429)
+                        props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+                    else if(error.response && error.response.data && error.response.data.error)
                         props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
                     else
                         props.setAlertLabel(() => ({ text: "Failed to add transaction.", severity: config.alertSeverity.ERROR }));
@@ -194,7 +200,7 @@ function MyTransactions(props) {
                 .finally(() => { isQueryExecuting.current = false; });
         }
         else {
-            axios.delete(`/${props.currentPanel.endpoints.DELETE_TRANSACTION}`, {
+            axios.delete(`${props.currentPanel.endpoints.DELETE_TRANSACTION}`, {
                 params: {
                     transactionId: oldTransaction.id
                 }
@@ -219,7 +225,9 @@ function MyTransactions(props) {
                         setExpenseLimitDialogText(response.data);
                 })
                 .catch((error) => {
-                    if (error.response && error.response.data && error.response.data.error)
+                    if(error.status == 429)
+                        props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+                    else if(error.response && error.response.data && error.response.data.error)
                         props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
                     else
                         props.setAlertLabel(() => ({ text: "Failed to delete transaction.", severity: config.alertSeverity.ERROR }));

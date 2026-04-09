@@ -46,7 +46,9 @@ function SignUpBox(props) {
                 correctCode.current = response.data;
             })
             .catch((error) => {
-                if (error.response && error.response.data && error.response.data.error)
+                if(error.status == 429)
+                    props.setAlertLabel(() => ({ text: "Request limit exceeded.", severity: config.alertSeverity.ERROR }));
+                else if(error.response && error.response.data && error.response.data.error)
                     props.setAlertLabel(() => ({ text: error.response.data.error, severity: config.alertSeverity.ERROR }));
                 else
                     props.setAlertLabel(() => ({ text: "Failed to send verification code.", severity: config.alertSeverity.ERROR }));

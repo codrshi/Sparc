@@ -29,10 +29,10 @@ async function executeWorker() {
         const monthlySummaryPanelButton = '.monthly-summary';
         const previousMonthButton = '#previous-month-button';
         const donutChartBody = "#doughnut-chart-body";
-        const homeURL = `http://${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/home`;
+        const homeURL = `${process.env.CLIENT_URL}/home`;
 
         const page = await browser.newPage();
-        const loginURL = `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}${config.endpoints.login.IS_USER_PRESENT}?username=${credential.username}&password=${null}&email=${credential.email}&isLoginPage=true&isRememberMeChecked=false&isRequestFromScheduler=true`;
+        const loginURL = `${process.env.SERVER_URL}${config.endpoints.login.IS_USER_PRESENT}?username=${credential.username}&password=${null}&email=${credential.email}&isLoginPage=true&isRememberMeChecked=false&isRequestFromScheduler=true`;
 
         await page.goto(loginURL, { waitUntil: 'networkidle2' });
 

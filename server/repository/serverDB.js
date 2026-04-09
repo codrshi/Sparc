@@ -13,9 +13,7 @@ const RETRY_DELAY_MS = process.env.DB_CONN_RETRY_DELAY_MS;
 const db = new pg.Client({
     user: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
-    host: process.env.IS_DOCKER_RUN === "true"
-        ? "postgres"
-        : process.env.POSTGRES_HOST,
+    host: process.env.POSTGRES_HOST,
     database: process.env.POSTGRES_DB,
     port: process.env.POSTGRES_PORT
 });

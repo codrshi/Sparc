@@ -30,14 +30,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/static", express.static(path.join(__dirname, "public")));
-app.use(
-    cors({
-        origin: `http://${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}`, // Allow only the client to connect
-        credentials: true, // Allow cookies and authorization headers
-        methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-        allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    })
-);
+
+if(process.env.NODE_ENV === config.node_env.DEVELOPMENT) {
+    app.use(
+        cors({
+            origin: process.env.CLIENT_URL, // Allow only the client to connect
+            credentials: true, // Allow cookies and authorization headers
+            methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+            allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+        })
+    );
+}
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'template'));
 app.use("/uploads", express.static("uploads"));
@@ -48,20 +52,24 @@ if (!fs.existsSync(config.uploadPath)) {
     logger(loggingLevel.INFO, "Created {0} directory successfully.", config.uploadPath);
 }
 
-const checkDBConnection = async () => {
-    logger(loggingLevel.INFO, "Checking database connection...");
+app.get(config.endpoints.SERVICE_HEALTH, (req,res) => {
+    res.status(200).json({
+        status: "UP",
+        timestamp: new Date()
+    });
+});
+
+app.get(config.endpoints.SERVICE_READY, async (req,res)=> {
     try {
         await db.query("SELECT 1");
-        logger(loggingLevel.INFO, "Database connection is active.");
-        initializeDB();
-        return true;
     } catch (error) {
         console.error("Database connection lost:", error);
-        return false;
+        res.status(503).json({ status: "NOT_READY"});
     }
-};
+    res.status(200).json({ status: "READY"});
+});
 
-checkDBConnection();
+initializeDB();
 
 logger(loggingLevel.INFO, "Wiring up routes...");
 app.use("/", myTransactionRouter);
@@ -130,5 +138,5 @@ process.on("SIGINT", async () => {
 });
 
 app.listen(process.env.SERVER_PORT, () => {
-  logger(loggingLevel.INFO, "application started and running in {0}", `http://${process.env.SERVER_HOST}:${process.env.SERVER_PORT}`);
+  logger(loggingLevel.INFO, "application started and running in {0}", process.env.SERVER_URL);
 });

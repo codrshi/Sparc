@@ -11,12 +11,12 @@ export const SectionContext = createContext();
 export const UserDataChangeCounterContext = createContext();
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = config.BASE_URL;
-
+axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
 
 axios.interceptors.response.use(
   (response) => response,
   async (error) => {
+    console.log(process.env.REACT_APP_SERVER_URL);
     if (error.response && error.response.status === 401 && (sessionStorage.getItem("isLoginPage") === null || sessionStorage.getItem("isLoginPage") === "false")) {
       try {
         const res = await axios.post(config.endpoints.login.REFRESH_TOKEN);

@@ -9,36 +9,35 @@ const config={
         MIN_VALUE: 1000,
         MAX_VALUE: 5000,
     },
-    BASE_URL: "http://localhost:3030",
-    endpoints:{
-        TRANSACTION: "/transaction",
-        manageExpenses:{
-            EMERGENCY_FUND: "/emergency-fund",
-            EXPENSE_LIMIT: "/expense-limit",
-            MONTHLY_EXPENSE_AGGREGATE: "/monthly-expense-aggregate",
-            RECURRING_TRANSACTION: "/recurring-transaction",
+    endpoints: {
+        TRANSACTION: "/api/transaction",
+        manageExpenses: {
+            EMERGENCY_FUND: "/api/emergency-fund",
+            EXPENSE_LIMIT: "/api/expense-limit",
+            MONTHLY_EXPENSE_AGGREGATE: "/api/monthly-expense-aggregate",
+            RECURRING_TRANSACTION: "/api/recurring-transaction",
         },
-        MONTHLY_SUMMARY: "/monthly-summary",
-        DASHBOARD: "/dashboard",
-        login:{
-            LOGIN: "/login",
-            IS_USER_PRESENT: "/login/isUserPresent",
-            VERIFICATION_CODE: "/login/verification-code",
-            REFRESH_TOKEN: "/login/refresh-token",
-            AUTH: "/login/auth",
-            VERIFY_EMAIL: "/login/verify-email",
-            CHANGE_PASSWORD: "/login/change-password"
+        MONTHLY_SUMMARY: "/api/monthly-summary",
+        DASHBOARD: "/api/dashboard",
+        login: {
+            LOGIN: "/api/login",
+            IS_USER_PRESENT: "/api/login/isUserPresent",
+            VERIFICATION_CODE: "/api/login/verification-code",
+            REFRESH_TOKEN: "/api/login/refresh-token",
+            AUTH: "/api/login/auth",
+            VERIFY_EMAIL: "/api/login/verify-email",
+            CHANGE_PASSWORD: "/api/login/change-password"
         },
-        settings:{
-            CREDENTIAL: "/settings/credential",
-            LOGOUT: "/settings/logout",
-            DELETE_ACCOUNT: "/settings/delete-account",
+        settings: {
+            CREDENTIAL: "/api/settings/credential",
+            LOGOUT: "/api/settings/logout",
+            DELETE_ACCOUNT: "/api/settings/delete-account",
         },
-        BAR: "/bar",
-        ACHIEVEMENT: "/achievement",
-        financialAdvisor:{
-            ADVICE: "/financial-advisor/advice",
-            CREDITS: "/financial-advisor/credits",
+        BAR: "/api/bar",
+        ACHIEVEMENT: "/api/achievement",
+        financialAdvisor: {
+            ADVICE: "/api/financial-advisor/advice",
+            CREDITS: "/api/financial-advisor/credits",
         }
     },
     alertSeverity:{
@@ -47,6 +46,7 @@ const config={
         WARNING:"warning",
         ERROR:"error"
     },
+    DEFAULT_PROFILE_PICTURE_PATH: "DEFAULT",
     monthNames:["January","Febuary","March","April","May","June","July","August","September","October","November","December"],
     expenseLimit:{
         expenseLimitsLabel:{
@@ -333,10 +333,10 @@ const config={
                     DELETE: "Delete transaction"
                 },
                 endpoints:{
-                    GET_ALL_TRANSACTION: "transaction",
-                    UPDATE_TRANSACTION: "transaction",
-                    ADD_TRANSACTION: "transaction",
-                    DELETE_TRANSACTION: "transaction"
+                    GET_ALL_TRANSACTION: "/api/transaction",
+                    UPDATE_TRANSACTION: "/api/transaction",
+                    ADD_TRANSACTION: "/api/transaction",
+                    DELETE_TRANSACTION: "/api/transaction"
                 }
             },
             manageExpensesPanel:{
@@ -348,10 +348,10 @@ const config={
                     DELETE: "Delete recurring transaction"
                 },
                 endpoints:{
-                    GET_ALL_TRANSACTION: "recurring-transaction",
-                    UPDATE_TRANSACTION: "recurring-transaction",
-                    ADD_TRANSACTION: "recurring-transaction",
-                    DELETE_TRANSACTION: "recurring-transaction"
+                    GET_ALL_TRANSACTION: "/api/recurring-transaction",
+                    UPDATE_TRANSACTION: "/api/recurring-transaction",
+                    ADD_TRANSACTION: "/api/recurring-transaction",
+                    DELETE_TRANSACTION: "/api/recurring-transaction"
                 }
             }
         },
@@ -372,7 +372,7 @@ export default config;
 //         return config;
   
 //     try {
-//         axios.get("http://localhost:3030/config")
+//         axios.get("http://localhost/config")
 //         .then((response) => {
 //             config = response.data;
 //             console.log("Config Loaded in client:", config);
